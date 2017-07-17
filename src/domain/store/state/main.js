@@ -18,8 +18,9 @@ type Done = 1;
 type NotDone = 0;
 
 export type Todo = {
+  id: string,
   title: string,
-  sattus: Done | NotDone
+  status: Done | NotDone
 }
 
 export type State = {

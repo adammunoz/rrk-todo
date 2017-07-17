@@ -19,14 +19,14 @@
 import type { State, Todo } from 'domain/store/state/main';
 import type { Action } from 'domain/store/actions/main';
 import { defaultState } from 'domain/store/state/main';
+import { uniqueId } from 'lodash';
 
-export function addTodo(state: State, todo: Todo): State {
+export function addTodo(state: State, title: string): State {
   return {
-    todos: [...state.todos, todo]
+    todos: [...state.todos, { id: uniqueId(), title, status: 0 }]
   }
 }
 
-// Test in browser REPL
 window.addTodo = addTodo;
 
 export function reduceApp(state : State = defaultState, action : Action ) : State {
