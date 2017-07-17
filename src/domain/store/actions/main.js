@@ -17,44 +17,8 @@
 
 // @flow
 
-import type { Page, Item, DetailItem } from "domain/store/state/main";
-
-export type UpdateCurrentPageAction = {
-  type: "UPDATE_CURRENT_PAGE",
-  page: Page
-}
-
-export type UpdateAllItemsAction = {
-  type: "UPDATE_ALL_ITEMS",
-  allItems: Array<Item>
-}
-
-export type UpdateFilteredItemsAction = {
-  type: "UPDATE_FILTERED_ITEMS",
-  filteredItems: Array<Item>
-}
-
-export type DisplayDetailAction = {
-  type: "DISPLAY_DETAIL",
-  detail: DetailItem
-}
-
-export type Action = UpdateCurrentPageAction | UpdateAllItemsAction | UpdateFilteredItemsAction | DisplayDetailAction;
-
-export function updateCurrentPageAction(page: Page) : UpdateCurrentPageAction {
-  return { type: "UPDATE_CURRENT_PAGE", page };
-}
-
-export function updateAllItemsAction(allItems: Array<Item>) {
-  return { type: "UPDATE_ALL_ITEMS", allItems }
-}
-
-export function updateFilteredItemsAction(filteredItems: Array<Item>) {
-  return { type: "UPDATE_FILTERED_ITEMS", filteredItems }
-}
-
-export function displayDetailAction(detail: DetailItem) {
-  return { type: "DISPLAY_DETAIL", detail }
+export type Action = {
+  type: string
 }
 
 /*
