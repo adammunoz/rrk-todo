@@ -32,7 +32,7 @@ window.addTodo = addTodo;
 
 export function updateTodoTitle(state: State, id: string, title: string): State {
   return {
-    todos: map(state.todos, t => t.id == id ? { ...t, title  } : t )
+    todos: map(state.todos, t => t.id == id ? { ...t, title  } : t)
   };
 }
 
