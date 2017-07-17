@@ -19,15 +19,23 @@
 import type { State, Todo } from 'domain/store/state/main';
 import type { Action } from 'domain/store/actions/main';
 import { defaultState } from 'domain/store/state/main';
-import { uniqueId } from 'lodash';
+import { uniqueId, map } from 'lodash';
 
 export function addTodo(state: State, title: string): State {
   return {
     todos: [...state.todos, { id: uniqueId(), title, status: 0 }]
-  }
+  };
 }
 
 window.addTodo = addTodo;
+
+export function updateTodoTitle(state: State, id: string, title: string): State {
+  return {
+    todos: map(state.todos, t => t.id == id ? { ...t, title  } : t )
+  };
+}
+
+window.updateTodoTitle = updateTodoTitle;
 
 export function reduceApp(state : State = defaultState, action : Action ) : State {
   switch (action.type) {
