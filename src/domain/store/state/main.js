@@ -14,12 +14,20 @@
 
 // @flow
 
+type Done = 1;
+type NotDone = 0;
+
+export type Todo = {
+  title: string,
+  sattus: Done | NotDone
+}
+
 export type State = {
-  // TODO
+  todos: Array<Todo>
 }
 
 export const defaultState = {
-  // TODO
+  todos: []
 };
 
 /*

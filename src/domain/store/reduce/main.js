@@ -16,9 +16,18 @@
 
 // @flow
 
-import { defaultState } from "domain/store/state/main";
-import type { State } from "domain/store/state/main";
-import type { Action } from "domain/store/actions/main";
+import type { State, Todo } from 'domain/store/state/main';
+import type { Action } from 'domain/store/actions/main';
+import { defaultState } from 'domain/store/state/main';
+
+export function addTodo(state: State, todo: Todo): State {
+  return {
+    todos: [...state.todos, todo]
+  }
+}
+
+// Test in browser REPL
+window.addTodo = addTodo;
 
 export function reduceApp(state : State = defaultState, action : Action ) : State {
   switch (action.type) {
