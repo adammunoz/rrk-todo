@@ -21,7 +21,7 @@ import type { Action } from 'domain/store/actions/main';
 import { defaultState } from 'domain/store/state/main';
 import { uniqueId, map } from 'lodash';
 
-export function addTodo(state: State, title: string): State {
+function addTodo(state: State, title: string): State {
   return {
     todos: [...state.todos, { id: uniqueId(), title, status: 0 }]
   };
@@ -30,7 +30,7 @@ export function addTodo(state: State, title: string): State {
 // For testing on the REPL
 window.addTodo = addTodo;
 
-export function updateTodoTitle(state: State, id: string, title: string): State {
+function updateTodoTitle(state: State, id: string, title: string): State {
   return {
     todos: map(state.todos, t => t.id == id ? { ...t, title  } : t)
   };
@@ -41,6 +41,8 @@ window.updateTodoTitle = updateTodoTitle;
 
 export function reduceApp(state : State = defaultState, action : Action ) : State {
   switch (action.type) {
+    case 'ADD-TODO':
+      return addTodo(state, action.title);
     default:
       return state;
   }

@@ -16,8 +16,10 @@
 
 // @flow
 
-import { getLogger } from "domain/logger";
+import { store } from 'domain/store/main';
 
-/*
- * EOF: src/domain/middleware/user.js
- */
+export function addTodo(title: string) {
+  store.dispatch({ type: 'ADD-TODO', title });
+}
+
+window.addTodo = addTodo;

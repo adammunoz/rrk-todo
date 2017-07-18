@@ -16,14 +16,16 @@
 
 import type { State } from "domain/store/state/main";
 import * as React from "react";
+import * as userMiddleware from 'domain/middleware/user';
 
 // Define App as an importable function
-export function App({ state } : { state: State} ) {
+export function App({ state } : { state: State }) {
 
-  // Return the component structure in HTML
-  return (
+ const todos = state.todos;
+
+ return (
     <div>
-      TODO
+      { todos.map( t => <p key={t.id}>{t.title}</p>) }
     </div>
   );
 }

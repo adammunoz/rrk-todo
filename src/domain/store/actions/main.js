@@ -17,9 +17,12 @@
 
 // @flow
 
-export type Action = {
-  type: string
+export type AddTodo = {
+  type: 'ADD-TODO',
+  title: string
 }
+
+export type Action = AddTodo;
 
 /*
  * EOF: src/domain/store/actions/main.js
